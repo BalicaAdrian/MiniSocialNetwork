@@ -9,6 +9,14 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>SignUp</servlet-name>
+        <url-pattern>/Signup</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SignUpJsp</servlet-name>
+        <jsp-file>/SignUp.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SignUpJsp</servlet-name>
         <url-pattern>/SignUp</url-pattern>
     </servlet-mapping>
 </web-app>
