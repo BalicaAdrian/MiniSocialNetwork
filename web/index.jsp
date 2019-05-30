@@ -47,6 +47,8 @@
   <body>
 
   <a  href="${pageContext.request.contextPath}/SignUp"> SignUp Here!</a>
+  <br>
+  <a href="${pageContext.request.contextPath}/LoginPage"> Login</a>
     <%--<form  action="/SignUpForm_war_exploded/SignUp" name="SignUpForm" method="post" onsubmit="return validateForm();"  style="border:1px solid #ccc">--%>
     <%--<div class="container">--%>
       <%--<h1>Sign Up</h1>--%>

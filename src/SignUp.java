@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.sql.SQLException;
 
+
 public class SignUp extends javax.servlet.http.HttpServlet {
 
 
@@ -10,16 +11,32 @@ public class SignUp extends javax.servlet.http.HttpServlet {
         response.getWriter().println(request.getParameter("psw-repeat"));
 
 
-        User newUser = new User(request.getParameter("email"), request.getParameter("psw"));
+       // response.getWriter().println(request.getParameter("Am ajuns aici"));
 
-        response.getWriter().println(newUser.getEmail() + "din di post");
 
-        response.getWriter().println(request.getParameter("Am ajuns aici"));
+      String gasit=null;
         try {
-            newUser.addToDataBase();
-        } catch (
-    SQLException e) {
-           e.printStackTrace();
+           gasit=User.findByEmail(request.getParameter("email"));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        if(gasit.equals("true")){
+            response.getWriter().println("Emailul EXISTA!");
+            String redirectURL ="http://localhost:8080/SignUpForm_war_exploded/SignUp?error=User already exist!";
+            response.sendRedirect(redirectURL);
+        }
+        else {
+            try {
+                User newUser = new User(request.getParameter("email"), request.getParameter("psw"),User.getUniqueId()+1);
+                newUser.addToDataBase();
+                String redirectURL ="http://localhost:8080/SignUpForm_war_exploded";
+                response.sendRedirect(redirectURL);
+            } catch (
+                    SQLException e) {
+                e.printStackTrace();
+            }
         }
 
 
@@ -27,10 +44,9 @@ public class SignUp extends javax.servlet.http.HttpServlet {
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
 
-    }
-
-    public static void main(String[] args) {
-
 
     }
+
+//    public static void main(String[] args) {
+//    }
 }

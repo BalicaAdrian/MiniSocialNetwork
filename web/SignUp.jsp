@@ -32,10 +32,15 @@
             var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             if(re.test(x)==false){
 
+
                 alert("This is not a good email !");
                 return re.test(x);}
             else return true;
         }
+
+
+
+
         function validateForm(){
             var z= validateMail() && checkPass();
             return z;}
@@ -51,6 +56,7 @@
         <p>Please fill in this form to create an account.</p>
         <hr>
 
+
         <label for="email"><b>Email</b></label>
         <input type="text" placeholder="Enter Email" name="email" required>
 
@@ -63,6 +69,11 @@
         <label>
             <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
         </label>
+        <br>
+        <% if (null != request.getParameter("error")) {
+            out.println(request.getParameter("error"));
+        }
+        %>
 
         <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
