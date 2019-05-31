@@ -10,6 +10,10 @@ public class User {
         return email;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }

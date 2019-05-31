@@ -46,6 +46,7 @@
   </head>
   <body>
 
+
   <a  href="${pageContext.request.contextPath}/SignUp"> SignUp Here!</a>
   <br>
   <a href="${pageContext.request.contextPath}/LoginPage"> Login</a>

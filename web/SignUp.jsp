@@ -65,10 +65,19 @@
 
         <label for="psw-repeat"><b>Repeat Password</b></label>
         <input type="password" id="pass-repeat" placeholder="Repeat Password" name="psw-repeat" onkeyup="checkPass()"  required>
+        <br>
+
+        <label for="userName"><b>Name</b></label>
+        <input type="text" placeholder="Enter name" name="userName" required>
+
+        <label for="userSurname"><b>Surname</b></label>
+        <input type="text" placeholder="Enter surname" name="userSurname" required>
+
         <span id="message"></span>
         <label>
             <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
         </label>
+
         <br>
         <% if (null != request.getParameter("error")) {
             out.println(request.getParameter("error"));
