@@ -43,4 +43,12 @@
     <servlet-name>Profile</servlet-name>
     <url-pattern>/Profile</url-pattern>
 </servlet-mapping>
+    <servlet>
+        <servlet-name>UserProfileDescription</servlet-name>
+        <jsp-file>/UserProfileDescription.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserProfileDescription</servlet-name>
+        <url-pattern>/UserProfileDescription</url-pattern>
+    </servlet-mapping>
 </web-app>

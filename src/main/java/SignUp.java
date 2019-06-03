@@ -29,15 +29,22 @@ public class SignUp extends javax.servlet.http.HttpServlet {
         }
         else {
             try {
+
+                String email=request.getParameter("email");
+
                 User newUser = new User(request.getParameter("email"), request.getParameter("psw"),User.getUniqueId()+1);
                 newUser.addToDataBase();
 
                 userProfile newUserProfile= new userProfile(newUser);
                 newUserProfile.createProfileUserInDataBase(request.getParameter("userName"),request.getParameter("userSurname"));
 
+                ///SEND PARAMETER TO USERPROFILE DESCRIPTION + REdirect
+                request.setAttribute("emailLogin",email);
+                request.getRequestDispatcher("UserProfileDescription.jsp").forward(request, response);
 
-                String redirectURL ="http://localhost:8080/SignUpForm_war_exploded";
-                response.sendRedirect(redirectURL);
+
+//                String redirectURL ="http://localhost:8080/SignUpForm_war_exploded/UserProfileDescription";
+//                response.sendRedirect(redirectURL);
             } catch (
                     SQLException e) {
                 e.printStackTrace();

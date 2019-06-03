@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SignUpForm.iml" filepath="$PROJECT_DIR$/SignUpForm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SignUpForm_war_exploded.iml" filepath="$PROJECT_DIR$/SignUpForm_war_exploded.iml" />
     </modules>
   </component>
 </project>
