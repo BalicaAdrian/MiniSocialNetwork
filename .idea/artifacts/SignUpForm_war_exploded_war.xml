@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="SignUpForm_war_exploded:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>SignUpForm_war_exploded</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="SignUpForm_war_exploded.war">
+      <element id="artifact" artifact-name="SignUpForm_war_exploded:war exploded" />
+    </root>
+  </artifact>
+</component>
