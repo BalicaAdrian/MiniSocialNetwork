@@ -1,5 +1,6 @@
-userProfile.class
 loginPage.class
-SignUp.class
+userProfile.class
 ConnectionToDataBase.class
+SignUp.class
+userProfileDescription.class
 User.class
