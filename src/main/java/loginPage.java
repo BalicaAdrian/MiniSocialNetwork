@@ -37,6 +37,8 @@ public class loginPage extends HttpServlet {
                 if((User.getPasswordFromMail(email).equals(password))){
                     //String redirectURL ="http://localhost:8080/SignUpForm_war_exploded/Profile";
                     //response.sendRedirect(redirectURL);
+
+                    ///IF IT IS TRUE PASS TO THE LOGIN PAGE
                     request.setAttribute("emailLogin", email);
                     request.setAttribute("password", password);
                     request.getRequestDispatcher("Profile.jsp").forward(request, response);

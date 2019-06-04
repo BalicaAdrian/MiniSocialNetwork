@@ -39,14 +39,18 @@ public class SignUp extends javax.servlet.http.HttpServlet {
                 newUserProfile.createProfileUserInDataBase(request.getParameter("userName"),request.getParameter("userSurname"));
 
                 ///SEND PARAMETER TO USERPROFILE DESCRIPTION + REdirect
+
+                request.setAttribute("idOfPerson",newUser.getId());
                 request.setAttribute("emailLogin",email);
+                request.setAttribute("userName",request.getParameter("userName"));
+                request.setAttribute("userSurname",request.getParameter("userSurname"));
                 request.getRequestDispatcher("UserProfileDescription.jsp").forward(request, response);
 
 
-//                String redirectURL ="http://localhost:8080/SignUpForm_war_exploded/UserProfileDescription";
-//                response.sendRedirect(redirectURL);
-            } catch (
-                    SQLException e) {
+              // String redirectURL ="http://localhost:8080/SignUpForm_war_exploded/UserProfileDescription";
+              //  response.sendRedirect(redirectURL);
+                } catch (
+                   SQLException e) {
                 e.printStackTrace();
             }
         }
