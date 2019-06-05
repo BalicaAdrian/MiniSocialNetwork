@@ -11,8 +11,20 @@
     <title>UserDescription</title>
 </head>
 <body>
-<% String email = (String)request.getAttribute("emailLogin");//GET THE VALUE FROM SIGNUPJSP EMAIL
-    request.getSession().setAttribute("Email", email); //CREATEE A PARAMETER FOR SERVLET
+<%
+    //GET THE VALUE FROM SIGNUPJSP EMAIL
+    String email = (String)request.getAttribute("emailLogin");
+    String userName=(String)request.getAttribute("userName");
+    String userSurname=(String)request.getAttribute("userSurname");
+    int id= (Integer)request.getAttribute("idOfPerson");
+
+    //CREATEE A PARAMETER FOR SERVLET
+
+    request.getSession().setAttribute("ID",id);
+    request.getSession().setAttribute("Email", email);
+    request.getSession().setAttribute("userName", userName);
+    request.getSession().setAttribute("userSurname", userSurname);
+
     ;%>
 
 

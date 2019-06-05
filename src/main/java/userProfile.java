@@ -10,6 +10,16 @@ public class userProfile {
     private String dateOfBirth;
     private String location;
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    private String description;
+
     public int getId() {
         return id;
     }
@@ -60,17 +70,36 @@ public class userProfile {
 
 
     }
+    static public void updateDataProfile(String gender, String dateOfBirth, String location, String description, int id) throws SQLException {
+
+
+        Connection myCon= ConnectionToDataBase.getConnection();
+        PreparedStatement insertStmt=myCon.prepareStatement("UPDATE  MiniSocialNetDB.USER_PROFILE SET LOCATION=?, DATE_OF_BIRTH=?, GENDER=?, DESCRIPTION=? WHERE USER_ID like ?");
+        insertStmt.setString(1,location);
+        insertStmt.setString(2, dateOfBirth);
+        insertStmt.setString(3, gender);
+        insertStmt.setString(4,description);
+        insertStmt.setString(5, String.valueOf(id));
+        insertStmt.executeUpdate();
+
+
+    }
 
     public void createProfileUserInDataBase(String name, String surname) throws SQLException {
 
         this.name = name;
         this.surname = surname;
 
+
+
         Connection myCon = ConnectionToDataBase.getConnection();
         PreparedStatement insertStmt = myCon.prepareStatement("INSERT INTO MiniSocialNetDB.USER_PROFILE (USER_ID, NAME, SURNAME) VALUES (?,?,?)");
+
         insertStmt.setInt(1, this.id);
         insertStmt.setString(2, this.name);
         insertStmt.setString(3, this.surname);
+
+
         insertStmt.executeUpdate();
 
 
