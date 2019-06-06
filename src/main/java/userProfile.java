@@ -1,6 +1,4 @@
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class userProfile {
     private int id;
@@ -9,6 +7,7 @@ public class userProfile {
     private String gender;
     private String dateOfBirth;
     private String location;
+    private String description;
 
     public String getDescription() {
         return description;
@@ -18,12 +17,11 @@ public class userProfile {
         this.description = description;
     }
 
-    private String description;
-
     public int getId() {
         return id;
     }
 
+    public void setId(int id) { this.id = id; }
 
     public String getName() {
         return name;
@@ -65,11 +63,35 @@ public class userProfile {
         this.location = location;
     }
 
-    userProfile(User newUserProfile) {
+    public userProfile(User newUserProfile) {
         this.id = newUserProfile.getId();
-
-
     }
+
+    public static userProfile copyUser(userProfile newUser) {
+        int id = newUser.getId();
+        String dateOfBirth = newUser.getDateOfBirth();
+        String description = newUser.getDescription();
+        String gender = newUser.getGender();
+        String location = newUser.getLocation();
+        String name = newUser.getName();
+        String surname = newUser.getSurname();
+        userProfile user = new userProfile(id, name, surname, gender, dateOfBirth, location, description);
+        return  user;
+    }
+
+    public userProfile(int id, String name, String surname, String gender, String dateOfBirth, String location, String description) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.gender = gender;
+        this.dateOfBirth = dateOfBirth;
+        this.location = location;
+        this.description = description;
+    }
+
+    public userProfile() {
+    }
+
     static public void updateDataProfile(String gender, String dateOfBirth, String location, String description, int id) throws SQLException {
 
 

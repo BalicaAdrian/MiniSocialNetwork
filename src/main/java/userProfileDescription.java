@@ -11,7 +11,7 @@ import java.sql.SQLException;
 @WebServlet(name = "userProfileDescription" ,urlPatterns = "/userProfileDescription")
 public class userProfileDescription extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        request.getRequestDispatcher("ProfilePage.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -58,7 +58,7 @@ public class userProfileDescription extends HttpServlet {
         // userProfile newUser= new userProfile(name,surname,gender,dateofbirth,location,description);
 
         String redirectURL ="http://localhost:8080/SignUpForm_war_exploded";
-        response.sendRedirect(redirectURL);
+        //response.sendRedirect("redirectURL");
 
     }
 }
