@@ -13,7 +13,7 @@
 <body>
 <%
     //GET THE VALUE FROM SIGNUPJSP EMAIL
-    String email = (String)request.getAttribute("emailLogin");
+    String email = (String)request.getAttribute("email");
     String userName=(String)request.getAttribute("userName");
     String userSurname=(String)request.getAttribute("userSurname");
     int id= (Integer)request.getAttribute("idOfPerson");
@@ -29,7 +29,7 @@
 
 
 
-<form action="/SignUpForm_war_exploded/userProfileDescription" id="UserDescription">
+<form action="/SignUpForm_war_exploded/userProfileDescription" id="UserDescription" method="post">
     Gender:
     <input type="radio" name="Gender" value="Male"> Male
     <input type="radio" name="Gender" value="Female"> Female

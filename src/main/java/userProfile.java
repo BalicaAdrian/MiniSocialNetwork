@@ -8,6 +8,7 @@ public class userProfile {
     private String dateOfBirth;
     private String location;
     private String description;
+    private String userPicPath;
 
     public String getDescription() {
         return description;
@@ -67,6 +68,10 @@ public class userProfile {
         this.id = newUserProfile.getId();
     }
 
+    public String getUserPicPath() { return userPicPath; }
+
+    public void setUserPicPath(String userPicPath) { this.userPicPath = userPicPath; }
+
     public static userProfile copyUser(userProfile newUser) {
         int id = newUser.getId();
         String dateOfBirth = newUser.getDateOfBirth();
@@ -94,7 +99,6 @@ public class userProfile {
 
     static public void updateDataProfile(String gender, String dateOfBirth, String location, String description, int id) throws SQLException {
 
-
         Connection myCon= ConnectionToDataBase.getConnection();
         PreparedStatement insertStmt=myCon.prepareStatement("UPDATE  MiniSocialNetDB.USER_PROFILE SET LOCATION=?, DATE_OF_BIRTH=?, GENDER=?, DESCRIPTION=? WHERE USER_ID like ?");
         insertStmt.setString(1,location);
@@ -103,16 +107,13 @@ public class userProfile {
         insertStmt.setString(4,description);
         insertStmt.setString(5, String.valueOf(id));
         insertStmt.executeUpdate();
-
-
+        ConnectionToDataBase.endConnection(myCon);
     }
 
     public void createProfileUserInDataBase(String name, String surname) throws SQLException {
 
         this.name = name;
         this.surname = surname;
-
-
 
         Connection myCon = ConnectionToDataBase.getConnection();
         PreparedStatement insertStmt = myCon.prepareStatement("INSERT INTO MiniSocialNetDB.USER_PROFILE (USER_ID, NAME, SURNAME) VALUES (?,?,?)");
@@ -123,8 +124,6 @@ public class userProfile {
 
 
         insertStmt.executeUpdate();
-
-
+        ConnectionToDataBase.endConnection(myCon);
     }
-
 }
