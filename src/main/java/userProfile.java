@@ -1,6 +1,4 @@
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class userProfile {
     private int id;
@@ -9,6 +7,8 @@ public class userProfile {
     private String gender;
     private String dateOfBirth;
     private String location;
+    private String description;
+    private String userPicPath;
 
     public String getDescription() {
         return description;
@@ -18,12 +18,11 @@ public class userProfile {
         this.description = description;
     }
 
-    private String description;
-
     public int getId() {
         return id;
     }
 
+    public void setId(int id) { this.id = id; }
 
     public String getName() {
         return name;
@@ -65,13 +64,40 @@ public class userProfile {
         this.location = location;
     }
 
-    userProfile(User newUserProfile) {
+    public userProfile(User newUserProfile) {
         this.id = newUserProfile.getId();
-
-
     }
-    static public void updateDataProfile(String gender, String dateOfBirth, String location, String description, int id) throws SQLException {
 
+    public String getUserPicPath() { return userPicPath; }
+
+    public void setUserPicPath(String userPicPath) { this.userPicPath = userPicPath; }
+
+    public static userProfile copyUser(userProfile newUser) {
+        int id = newUser.getId();
+        String dateOfBirth = newUser.getDateOfBirth();
+        String description = newUser.getDescription();
+        String gender = newUser.getGender();
+        String location = newUser.getLocation();
+        String name = newUser.getName();
+        String surname = newUser.getSurname();
+        userProfile user = new userProfile(id, name, surname, gender, dateOfBirth, location, description);
+        return  user;
+    }
+
+    public userProfile(int id, String name, String surname, String gender, String dateOfBirth, String location, String description) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.gender = gender;
+        this.dateOfBirth = dateOfBirth;
+        this.location = location;
+        this.description = description;
+    }
+
+    public userProfile() {
+    }
+
+    static public void updateDataProfile(String gender, String dateOfBirth, String location, String description, int id) throws SQLException {
 
         Connection myCon= ConnectionToDataBase.getConnection();
         PreparedStatement insertStmt=myCon.prepareStatement("UPDATE  MiniSocialNetDB.USER_PROFILE SET LOCATION=?, DATE_OF_BIRTH=?, GENDER=?, DESCRIPTION=? WHERE USER_ID like ?");
@@ -81,16 +107,13 @@ public class userProfile {
         insertStmt.setString(4,description);
         insertStmt.setString(5, String.valueOf(id));
         insertStmt.executeUpdate();
-
-
+        ConnectionToDataBase.endConnection(myCon);
     }
 
     public void createProfileUserInDataBase(String name, String surname) throws SQLException {
 
         this.name = name;
         this.surname = surname;
-
-
 
         Connection myCon = ConnectionToDataBase.getConnection();
         PreparedStatement insertStmt = myCon.prepareStatement("INSERT INTO MiniSocialNetDB.USER_PROFILE (USER_ID, NAME, SURNAME) VALUES (?,?,?)");
@@ -101,8 +124,6 @@ public class userProfile {
 
 
         insertStmt.executeUpdate();
-
-
+        ConnectionToDataBase.endConnection(myCon);
     }
-
 }

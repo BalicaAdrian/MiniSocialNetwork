@@ -42,19 +42,19 @@ public class User {
      insertStmt.setString(3,this.password);
      insertStmt.setInt(1,this.id);
      insertStmt.executeUpdate();
-
-
+     ConnectionToDataBase.endConnection(myCon);
  }
 
- public static int getUniqueId() throws SQLException {
-     Connection myCon=ConnectionToDataBase.getConnection();
-     Statement Stmt=myCon.createStatement();
-     String sql =" SELECT * FROM MiniSocialNetDB.USER WHERE USER_ID = (SELECT MAX(USER_ID) FROM MiniSocialNetDB.USER )";
-     ResultSet myResult=Stmt.executeQuery(sql);
-     myResult.next();
-
-    return myResult.getInt("USER_ID");
- }
+    public static int getUniqueId() throws SQLException {
+        Connection myCon=ConnectionToDataBase.getConnection();
+        Statement Stmt=myCon.createStatement();
+        String sql =" SELECT * FROM MiniSocialNetDB.USER WHERE USER_ID = (SELECT MAX(USER_ID) FROM MiniSocialNetDB.USER )";
+        ResultSet myResult=Stmt.executeQuery(sql);
+        myResult.next();
+        int userID = myResult.getInt("USER_ID");
+        ConnectionToDataBase.endConnection(myCon);
+        return userID;
+    }
 
      public static String findByEmail(String email) throws SQLException {
          Connection myCon=ConnectionToDataBase.getConnection();
@@ -62,16 +62,17 @@ public class User {
          String sql =" SELECT EMAIL FROM MiniSocialNetDB.USER";
          boolean gasit=false;
          ResultSet myResult=Stmt.executeQuery(sql);
-        while(myResult.next()) {
+         while(myResult.next()) {
             if(email.equals(myResult.getString("EMAIL")))
                 gasit=true;
 
 
             //System.out.println(myResult.getString("EMAIL"));
-        }
-        if(gasit)
+         }
+         ConnectionToDataBase.endConnection(myCon);
+         if(gasit)
            return "true";
-        else
+         else
             return "fasle";
 
      }
@@ -86,9 +87,8 @@ public class User {
           if(myResult.next()) {
               password = myResult.getString("PASSWORD");
          }
+         ConnectionToDataBase.endConnection(myCon);
          return password;
-
-
      }
 
 

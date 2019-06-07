@@ -57,20 +57,20 @@
         <hr>
 
 
-        <label for="email"><b>Email</b></label>
+        <label name="email"><b>Email</b></label>
         <input type="text" placeholder="Enter Email" name="email" required>
 
-        <label for="psw"><b>Password</b></label>
+        <label name="psw"><b>Password</b></label>
         <input type="password" id="pass" placeholder="Enter Password" name="psw" onkeyup="checkPass()" required>
 
-        <label for="psw-repeat"><b>Repeat Password</b></label>
+        <label name="psw-repeat"><b>Repeat Password</b></label>
         <input type="password" id="pass-repeat" placeholder="Repeat Password" name="psw-repeat" onkeyup="checkPass()"  required>
         <br>
 
-        <label for="userName"><b>Name</b></label>
+        <label name="userName"><b>Name</b></label>
         <input type="text" placeholder="Enter name" name="userName" required>
 
-        <label for="userSurname"><b>Surname</b></label>
+        <label name="userSurname"><b>Surname</b></label>
         <input type="text" placeholder="Enter surname" name="userSurname" required>
 
         <span id="message"></span>

@@ -29,23 +29,22 @@ public class SignUp extends javax.servlet.http.HttpServlet {
         }
         else {
             try {
-
-                String email=request.getParameter("email");
-
                 User newUser = new User(request.getParameter("email"), request.getParameter("psw"),User.getUniqueId()+1);
                 newUser.addToDataBase();
 
                 userProfile newUserProfile= new userProfile(newUser);
                 newUserProfile.createProfileUserInDataBase(request.getParameter("userName"),request.getParameter("userSurname"));
 
-                ///SEND PARAMETER TO USERPROFILE DESCRIPTION + REdirect
+                ///SEND PARAMETER TO USERPROFILE DESCRIPTION + REDIRECT
 
-                request.setAttribute("idOfPerson",newUser.getId());
-                request.setAttribute("emailLogin",email);
-                request.setAttribute("userName",request.getParameter("userName"));
-                request.setAttribute("userSurname",request.getParameter("userSurname"));
+                request.setAttribute("idOfPerson", newUser.getId());
+                String name = request.getParameter("userName");
+                request.setAttribute("userName", name);
+                String surname = request.getParameter("userSurname");
+                request.setAttribute("userSurname", surname);
+                request.setAttribute("email", request.getParameter("email"));
+
                 request.getRequestDispatcher("UserProfileDescription.jsp").forward(request, response);
-
 
               // String redirectURL ="http://localhost:8080/SignUpForm_war_exploded/UserProfileDescription";
               //  response.sendRedirect(redirectURL);
@@ -54,15 +53,9 @@ public class SignUp extends javax.servlet.http.HttpServlet {
                 e.printStackTrace();
             }
         }
-
-
     }
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
 
-
     }
-
-//    public static void main(String[] args) {
-//    }
 }

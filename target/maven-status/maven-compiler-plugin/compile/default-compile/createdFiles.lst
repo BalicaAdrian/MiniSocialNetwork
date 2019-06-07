@@ -1,6 +1,7 @@
+User.class
 loginPage.class
 userProfile.class
+com\Crypto\Encrypt.class
 ConnectionToDataBase.class
 SignUp.class
 userProfileDescription.class
-User.class
