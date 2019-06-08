@@ -1,7 +1,9 @@
-User.class
-loginPage.class
-userProfile.class
+com\LoginAndSignUp\User.class
+com\LoginAndSignUp\SignUp.class
+com\LoginAndSignUp\userProfile.class
+Picture.class
+com\LoginAndSignUp\ProfilePage.class
+com\ConnectionDatabase\ConnectionToDataBase.class
 com\Crypto\Encrypt.class
-ConnectionToDataBase.class
-SignUp.class
-userProfileDescription.class
+com\LoginAndSignUp\userProfileDescription.class
+com\LoginAndSignUp\loginPage.class
