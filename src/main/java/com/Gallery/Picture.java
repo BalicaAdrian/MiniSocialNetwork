@@ -3,6 +3,8 @@ package com.Gallery;
 import com.ConnectionDatabase.ConnectionToDataBase;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Picture {
     private String path;
@@ -36,6 +38,22 @@ public class Picture {
         prepStmt.setString(3, ob.getPath());
         prepStmt.executeUpdate();
         ConnectionToDataBase.endConnection(myCon);
+    }
+
+    public static List<String> GetPathsOfAlbumPhotos(int IdAlbum) throws SQLException {
+
+        List<String> PathList=new ArrayList<>();
+        Connection myCon=ConnectionToDataBase.getConnection();
+        PreparedStatement myStmt=myCon.prepareStatement("SELECT PATH  FROM MiniSocialNetDB.PHOTO WHERE ALBUM_ID=?");
+        myStmt.setInt(1,IdAlbum);
+        ResultSet myResult = myStmt.executeQuery();
+
+        while(myResult.next()){
+            PathList.add(myResult.getString("PATH"));
+        }
+
+
+        return PathList;
     }
 
     public String getPath() {
