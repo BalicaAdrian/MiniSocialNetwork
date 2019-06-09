@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Adrian
+  com.LoginAndSignUp.User: Adrian
   Date: 5/8/2019
   Time: 5:19 PM
   To change this template use File | Settings | File Templates.
@@ -46,7 +46,7 @@
             return z;}
     </script>
 
-    <title>SignUp</title>
+    <title>com.LoginAndSignUp.SignUp</title>
 </head>
 <body>
 

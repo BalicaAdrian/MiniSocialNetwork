@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Adrian
+  com.LoginAndSignUp.User: Adrian
   Date: 4/21/2019
   Time: 8:42 PM
   To change this template use File | Settings | File Templates.
@@ -50,7 +50,7 @@
   <a  href="${pageContext.request.contextPath}/SignUp"> SignUp Here!</a>
   <br>
   <a href="${pageContext.request.contextPath}/LoginPage"> Login</a>
-    <%--<form  action="/SignUpForm_war_exploded/SignUp" name="SignUpForm" method="post" onsubmit="return validateForm();"  style="border:1px solid #ccc">--%>
+    <%--<form  action="/SignUpForm_war_exploded/com.LoginAndSignUp.SignUp" name="SignUpForm" method="post" onsubmit="return validateForm();"  style="border:1px solid #ccc">--%>
     <%--<div class="container">--%>
       <%--<h1>Sign Up</h1>--%>
       <%--<p>Please fill in this form to create an account.</p>--%>

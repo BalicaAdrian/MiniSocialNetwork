@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Adrian
+  com.LoginAndSignUp.User: Adrian
   Date: 5/18/2019
   Time: 8:25 PM
   To change this template use File | Settings | File Templates.
