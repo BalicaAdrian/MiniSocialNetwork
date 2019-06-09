@@ -1,6 +1,7 @@
 package com.LoginAndSignUp;
 
 import com.ConnectionDatabase.ConnectionToDataBase;
+import com.Gallery.Album;
 import com.LoginAndSignUp.userProfile;
 
 import javax.servlet.ServletException;
@@ -29,8 +30,10 @@ public class userProfileDescription extends HttpServlet {
         String surname = (String)request.getSession().getAttribute("userSurname");
         userProfile newUserProfile = new userProfile(id, name, surname, gender, dateofbirth, location, description);
 
-
         try {
+            Album newAlbum = new Album(id);
+            Album.writeAlbumInDataBase(newAlbum);
+
             userProfile.updateDataProfile(gender,dateofbirth,location,description, id);
         } catch (SQLException e) {
             e.printStackTrace();

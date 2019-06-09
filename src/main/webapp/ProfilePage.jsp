@@ -1,4 +1,5 @@
-<%@ page import="com.LoginAndSignUp.userProfile" %><%--
+<%@ page import="com.LoginAndSignUp.userProfile" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   com.LoginAndSignUp.User: Doru
   Date: 6/6/2019
@@ -182,8 +183,8 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-work">
-                    <p>WORK LINK</p>
-                    <a href="">Website Link</a><br/>
+                    <p>PERSONAL LINKS</p>
+                    <a href="PhotoGallery.jsp?email=<%=email%>&userID=<%=userProfile.getId()%>">Gallery</a><br/>
                     <a href="">Bootsnipp Profile</a><br/>
                     <a href="">Bootply Profile</a>
                     <p>SKILLS</p>

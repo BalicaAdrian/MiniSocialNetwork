@@ -1,9 +1,11 @@
+com\Gallery\Picture.class
 com\LoginAndSignUp\User.class
 com\LoginAndSignUp\SignUp.class
 com\LoginAndSignUp\userProfile.class
-Picture.class
 com\LoginAndSignUp\ProfilePage.class
 com\ConnectionDatabase\ConnectionToDataBase.class
+com\Gallery\Album.class
+com\Gallery\photoGallery.class
 com\Crypto\Encrypt.class
 com\LoginAndSignUp\userProfileDescription.class
 com\LoginAndSignUp\loginPage.class

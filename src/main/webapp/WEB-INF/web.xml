@@ -83,5 +83,25 @@
         <servlet-name>Profilepage</servlet-name>
         <url-pattern>/Profilepage</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PhotoGallery</servlet-name>
+        <jsp-file>/PhotoGallery.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>PhotoGallery</servlet-name>
+        <url-pattern>/PhotoGallery</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>photoGallery</servlet-name>
+        <servlet-class>com.Gallery.photoGallery</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>photoGallery</servlet-name>
+        <url-pattern>/photoGallery</url-pattern>
+    </servlet-mapping>
     
 </web-app>
